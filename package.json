@@ -18,5 +18,8 @@
   "homepage": "https://github.com/gustavocosta11/gustavo-costa-brainflix-api#readme",
   "dependencies": {
     "uuidv4": "^6.2.13"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21"
   }
 }
