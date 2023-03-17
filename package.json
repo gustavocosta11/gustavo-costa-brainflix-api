@@ -1,0 +1,22 @@
+{
+  "name": "gustavo-costa-brainflix-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gustavocosta11/gustavo-costa-brainflix-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gustavocosta11/gustavo-costa-brainflix-api/issues"
+  },
+  "homepage": "https://github.com/gustavocosta11/gustavo-costa-brainflix-api#readme",
+  "dependencies": {
+    "uuidv4": "^6.2.13"
+  }
+}
