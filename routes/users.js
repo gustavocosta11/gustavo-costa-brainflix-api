@@ -2,6 +2,20 @@ const express = require("express");
 const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
 const router = express.Router();
+const multer = require("multer");
+
+const storage = multer.diskStorage({
+  destination: "./public/images",
+  filename: (_req, file, cb) => {
+    const fileExtension = getFileExtension(path.extname(file.originalname));
+    const acceptedFormats = ["jpg", "jpeg", "png"];
+
+    if (acceptedFormats.includes(fileExtension))
+      cb(null, Date.now() + path.extname(file.originalname));
+  },
+});
+
+const upload = multer({ storage });
 
 router.get("/videos", function (req, res) {
   let currentVideos = JSON.parse(fs.readFileSync("./data/videos.json"));
@@ -19,20 +33,20 @@ router.post("/", (req, res) => {
   let newVideo = {
     title: req.body.title,
     channel: "Uploader Channel",
-    image: "http://localhost:8080/images/Upload-video-preview.jpg",
+    image: "http://localhost:9999/images/Upload-video-preview.jpg",
     description: req.body.description,
     views: new Intl.NumberFormat().format(Math.round(Math.random() * 100000)), // format number
     likes: new Intl.NumberFormat().format(Math.round(Math.random() * 10000)), // format number
     timestamp: Date.now(),
     comments: [
       {
-        name: "Andrea Timmins",
-        comment: "Love this video!!",
+        name: "James Bond",
+        comment: "Best biker!!",
         timestamp: Date.now(),
       },
       {
-        name: "Jason webber",
-        comment: "Would highly recommend, 10/10.",
+        name: "Neymar Junior",
+        comment: "Awesome day!!!.",
         timestamp: Date.now(),
       },
     ],
